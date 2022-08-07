@@ -31,3 +31,4 @@ def play(difficulty):
         print(f"The correct Rate for that amount of USD is", converted_num, "ILS")
     else:
         print("Good job traveler you chose right")
+    return check_user_guess(max_range, min_range, guess_user)

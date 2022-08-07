@@ -3,6 +3,7 @@ import time
 import guess_game
 import memory_game
 import Currency_game
+import score
 
 
 def welcome_wog():
@@ -61,8 +62,14 @@ def load_game():
     # chose.
     if chosen_game == 1:
         memory_game.play(difficulty)
+        if bool(memory_game) is True:
+            score.add_score(difficulty)
+
     elif chosen_game == 2:
         guess_game.play(difficulty)
+        if bool(guess_game) is True:
+            score.add_score(difficulty)
     else:
         Currency_game.play(difficulty)
-
+        if bool(Currency_game) is True:
+            score.add_score(difficulty)

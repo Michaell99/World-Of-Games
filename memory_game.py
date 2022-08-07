@@ -48,6 +48,6 @@ def play(difficulty):
     user_list = get_user_sequence(res)
     if not list_check(user_list, res):
         print('The correct numbers were', '', res)
-
     else:
         print("Good job traveller you chose the correct numbers")
+    return list_check(user_list, res)

@@ -33,3 +33,4 @@ def play(difficulty):
         print(f"You chose wrong traveler The secret number was", "", secret_number)
     else:
         print("You chose correctly congratulations! ")
+    return compare_results(player_guess, secret_number)
