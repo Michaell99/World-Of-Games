@@ -3,9 +3,6 @@ import time
 import os
 
 
-# Setting up these variables as global in order to user the at the global scope
-
-
 # Making a clear function that would clear the Terminal after the list was shown
 def clear():
     os.system("cls")
