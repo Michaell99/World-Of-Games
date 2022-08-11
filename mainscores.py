@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import templates
+import os
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -24,5 +25,6 @@ def score_server():
         return render_template('Score.html', SCORE=res), 200
 
 
-app.run('0.0.0.0', debug=True, port=30000)
+port = int(os.environ.get('PORT', 3000))
 
+app.run('0.0.0.0', debug=True, port=30000)
