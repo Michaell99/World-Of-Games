@@ -19,7 +19,7 @@ def score_server():
     score_file = open('static/score.txt', 'r')
     score = score_file.readline()
     if score == "":
-        return render_template('ScoreError.html', Error="Can't open file"), 400
+        return render_template('ScoreError.html', Error="Can't open file", SCORE=score), 400
     elif score != res:
         res = res + safe_cast(score, int, 0)
         return render_template('Score.html', SCORE=score), 200
