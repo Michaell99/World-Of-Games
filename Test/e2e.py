@@ -1,15 +1,24 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-import requests
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
 
 
 # Grabbing the chromedriver in order to do tests
+def safe_cast(val, to_type, default=int):
+    try:
+        return to_type(val)
+    except (ValueError, TypeError):
+        return default
+
 
 def test_scores_service():
     my_driver = webdriver.Chrome(executable_path="C:/Users/User/Desktop/study/chromedriver.exe")
+    wait = WebDriverWait(my_driver, 20)
+
     my_driver.get("http://127.0.0.1:30000/")
-    score_element = int(my_driver.find_element(by="id", value="score"))
-    if 1000 >= score_element >= 1:
+    score = int(wait.until(EC.visibility_of_element_located((By.ID, "final"))).text)
+    if 1000 >= score >= 1:
         return True
     else:
         return False
@@ -23,5 +32,4 @@ def main_functions():
         exit(0)
 
 
-test_scores_service()
 main_functions()
